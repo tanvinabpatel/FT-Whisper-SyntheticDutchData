@@ -42,18 +42,20 @@ ProjectDirectoryName
 
 Location: https://huggingface.co/datasets/mariatepei/synthetic_accented_Dutch
 
-```
+Details on the dataset: Tepei, Maria (2024) Addressing ASR Bias Against Foreign-Accented Dutch: A Synthetic Data Approach. Master thesis, Voice Technology (VT). 
+ 
+ ```
 | Dataset Split | Number of Files | Total Duration (hours) |
 |---------------|-----------------|------------------------|
 | Train         | 1466            | 10.31                  |
 | Validation    | 357             | 2.5                    |
 ```
-The database need not be downloaded, it will be directly processed and saved by the scripts.
+The database need not be downloaded, it will be directly processed and saved by the following scripts.
 
 ## Training and Evaluation
 Training: Fine-tuning on the Whisper-tiny model.
 Location: https://huggingface.co/openai/whisper-tiny
-(You are open to choose any model)
+(It is possible to choose any model)
 The model need not be downloaded, it will be directly processed and used by the scripts.
 
 The corresponding text transcripts contain written punctuation marks in symbols such as ,/./?/! (i.e., periods, commas, and question marks).
