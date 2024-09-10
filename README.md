@@ -42,8 +42,6 @@ ProjectDirectoryName
 
 Location: https://huggingface.co/datasets/mariatepei/synthetic_accented_Dutch
 
-Details on the dataset: Tepei, Maria (2024) Addressing ASR Bias Against Foreign-Accented Dutch: A Synthetic Data Approach. Master thesis, Voice Technology (VT). 
- 
  ```
 | Dataset Split | Number of Files | Total Duration (hours) |
 |---------------|-----------------|------------------------|
@@ -157,3 +155,10 @@ _CGN-read_: Read speech from the CGN Corpus (Out-of-Domain): 13 files
 
 ```
 
+## Source | References:
+
+Guide on FT on Whsiper: https://huggingface.co/blog/fine-tune-whisper#training-and-evaluation
+
+Details on the dataset: Tepei, Maria (2024) Addressing ASR Bias Against Foreign-Accented Dutch: A Synthetic Data Approach. Master thesis, Voice Technology (VT). 
+ 
+ 
