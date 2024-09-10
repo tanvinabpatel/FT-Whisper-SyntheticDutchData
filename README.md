@@ -82,12 +82,7 @@ This script uses either the `processed dataset` or `processed_dataset_clean` dat
 
 - **Output:**
     - **Model Checkpoints:** The trained models are saved in the `model` directory
-    
-**Note:** This scripts can use GPU/CPU for training. Set the parameters, modelname and other parameters in the script accordingly.
-
-- **Output:**
-    - **Model Checkpoints:** The trained models are saved in the `model` directory
-    
+        
 **Evaluation:**
 
 The script calculates the metrics such as Word Error Rate (WER) and Character Error Rate (CER) to quantify the accuracy of the model's transcriptions along with other measures. The output will include detailed error for each of the files and comparision with the reference text.
