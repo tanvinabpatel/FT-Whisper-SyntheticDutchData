@@ -38,8 +38,6 @@ ProjectDirectoryName
 
 **Database:** Accented Dutch speech dataset generated synthetically using a speech synthesis model
 
-**Details:**
-
 Location: https://huggingface.co/datasets/mariatepei/synthetic_accented_Dutch
 
  ```
@@ -50,17 +48,12 @@ Location: https://huggingface.co/datasets/mariatepei/synthetic_accented_Dutch
 ```
 The database need not be downloaded, it will be directly processed and saved by the following scripts.
 
-## Training and Evaluation
-Training: Fine-tuning on the Whisper-tiny model.
-Location: https://huggingface.co/openai/whisper-tiny
-(It is possible to choose any model)
-The model need not be downloaded, it will be directly processed and used by the scripts.
-
-The corresponding text transcripts contain written punctuation marks in symbols such as ,/./?/! (i.e., periods, commas, and question marks).
-
 **Processing the Dataset:**
 This script processes the database and prepares it for use by the training script. 
 Since the data will be used to fine-tune the Whisper Model, the audio files and text need to meet the model's requirements.
+Currently the code uses Whisper-tiny model (https://huggingface.co/openai/whisper-tiny), however, it is possible to choose any model. The model need not be downloaded, it will be directly processed and used by the scripts.
+
+The text transcripts contain written punctuation marks in symbols such as ,/./?/! (i.e., periods, commas, and question marks). Therefore, these are processed or kept as is.
 
 ```sh
 	python3 scripts/preprocess.py --clean False 
@@ -75,8 +68,10 @@ Since the data will be used to fine-tune the Whisper Model, the audio files and 
     - **`--clean` == `True`:** The processed dataset will be saved as `processed_dataset_clean` in the `data` directory.
     - **`--clean` == `False`:** The processed dataset will be saved as `processed_dataset` in the `data` directory.
 
+## Training and Evaluation
 
 **Training the Model:** 
+Training: Fine-tuning on the Whisper-small model.
 
 This script uses either the `processed dataset` or `processed_dataset_clean` database to fine-tune a model based on Whisper-tiny.
 
@@ -161,4 +156,4 @@ Guide on FT on Whsiper: https://huggingface.co/blog/fine-tune-whisper#training-a
 
 Details on the dataset: Tepei, Maria (2024) Addressing ASR Bias Against Foreign-Accented Dutch: A Synthetic Data Approach. Master thesis, Voice Technology (VT). 
  
- 
+
