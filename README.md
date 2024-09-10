@@ -1,4 +1,4 @@
-# Task: Fine-Tuning Whisper-model on Synthetic Dutch Data
+# Fine-Tuning Whisper-model on Synthetic Dutch Data
 
 This codebase is to fine-tune a Dutch Accented Database on the whisper-tiny model
 
