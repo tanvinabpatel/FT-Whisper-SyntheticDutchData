@@ -68,7 +68,7 @@ The text transcripts contain written punctuation marks in symbols such as ,/./?/
     - **`--clean` == `True`:** The processed dataset will be saved as `processed_dataset_clean` in the `data` directory.
     - **`--clean` == `False`:** The processed dataset will be saved as `processed_dataset` in the `data` directory.
 
-## Training and Evaluation
+## Training
 
 **Training the Model:** 
 Training: Fine-tuning on the Whisper-small model.
@@ -101,7 +101,7 @@ This script performs inferencing on given audio file(s) using the fine-tuned mod
   
 Refer to end of script for how to run using the sample files provided in the `samples` directory.
 
-**Evaluation:**
+## Evaluation
 
 The script calculates the metrics such as Word Error Rate (WER) and Character Error Rate (CER) to quantify the accuracy of the model's transcriptions along with other measures. The output will include detailed error for each of the files and comparision with the reference text.
 
