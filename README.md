@@ -83,6 +83,24 @@ This script uses either the `processed dataset` or `processed_dataset_clean` dat
 - **Output:**
     - **Model Checkpoints:** The trained models are saved in the `model` directory
         
+## Inferencing
+This script performs inferencing on given audio file(s) using the fine-tuned model. It supports both single-file and batch (folder) processing modes and saves the transcriptions in a JSON file in the same location as the wavefile(s). 
+
+```sh
+    python3 scripts/inference_model.py --input /path/to/your/wave/filename.wav --batch 0
+    python3 scripts/inference_model.py --input path/to/your/wavefilesfolder/ --batch 1
+```
+**Note:** Make sure the `InferModel` model location (checkpoint after fine-tuning) is updated in `inference_model.py`. This code supports .mp3 and .wav format
+
+- **Arguments:** 
+  - **`--input`:** Path to the input folder or path to the file to be decoded.
+  - **`--batch`:** Mode of processing. (`0` for single-file processing, `1` for batch processing (all .wav files in the folder).)
+
+- **Output:**
+  - The transcriptions are saved as `transcription.json` in the same directory as `/path/to/your/wave` or `/path/to/your/wavefilesfolder/` 
+  
+Refer to end of script for how to run using the sample files provided in the `samples` directory.
+
 **Evaluation:**
 
 The script calculates the metrics such as Word Error Rate (WER) and Character Error Rate (CER) to quantify the accuracy of the model's transcriptions along with other measures. The output will include detailed error for each of the files and comparision with the reference text.
@@ -105,26 +123,7 @@ The script calculates the metrics such as Word Error Rate (WER) and Character Er
   - Transcriptions file `transcription.txt` is saved in the same directory as `path/to/the/decodefolder` 
   - Performance of the system on the folder to be decoded is saved as `result.txt` in the `path/to/the/decodefolder` .
  
-
-## Inferencing
-This script performs inferencing on given audio file(s) using the fine-tuned model. It supports both single-file and batch (folder) processing modes and saves the transcriptions in a JSON file in the same location as the wavefile(s). 
-
-```sh
-    python3 scripts/inference_model.py --input /path/to/your/wave/filename.wav --batch 0
-    python3 scripts/inference_model.py --input path/to/your/wavefilesfolder/ --batch 1
-```
-**Note:** Make sure the `InferModel` model location (checkpoint after fine-tuning) is updated in `inference_model.py`. This code supports .mp3 and .wav format
-
-- **Arguments:** 
-  - **`--input`:** Path to the input folder or path to the file to be decoded.
-  - **`--batch`:** Mode of processing. (`0` for single-file processing, `1` for batch processing (all .wav files in the folder).)
-
-- **Output:**
-  - The transcriptions are saved as `transcription.json` in the same directory as `/path/to/your/wave` or `/path/to/your/wavefilesfolder/` 
-  
-Refer to end of script for how to run using the sample files provided in the `samples` directory.
- 
-## Results
+ ## Results
 **Evaluation Datasets:**
 
 _SynDutch-Train_: Subset of the training dataset from the Synthetic Accented Dutch database: 100 files
