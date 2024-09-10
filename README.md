@@ -1,4 +1,4 @@
-# Attendi Task: Whisper Fine-Tuning on Synthetic Dutch Database
+# Task: Whisper Fine-Tuning on Synthetic Dutch Database
 
 This codebase is to fine-tune a Dutch Accented Database on the whisper-tiny model
 
@@ -52,7 +52,7 @@ The database need not be downloaded, it will be directly processed and saved by 
 ## Training and Evaluation
 Training: Fine-tuning on the Whisper-tiny model.
 Location: https://huggingface.co/openai/whisper-tiny
-
+(You are open to choose any )
 The model need not be downloaded, it will be directly processed and used by the scripts.
 
 ### Part A: Without Spoken Punctuations
