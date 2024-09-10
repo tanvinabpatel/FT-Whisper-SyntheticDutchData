@@ -1,6 +1,8 @@
 # Fine-Tuning Whisper-model on Synthetic Dutch Data
 
-This codebase is to fine-tune a Dutch Accented Database on the whisper-tiny model
+This codebase is to fine-tune a Synthetic Dutch Accented Database on the whisper-tiny model. 
+It aims to find out if a synthetic database can improve the performance on natural speech after finetuning on large pretrained models.
+In this task, the performance is shown on the same synthetic dataset,  and out-of-domain speech corpus
 
 ## Setup
 **Pre-requisites**
@@ -15,7 +17,6 @@ ProjectDirectoryName
     ├── preprocess_punc.py
     ├── preprocess.py
     ├── train.py
-    └── train_spkpunc.py
 ```
 
 **Create virtual virtual environment and activate:**
@@ -52,14 +53,12 @@ The database need not be downloaded, it will be directly processed and saved by 
 ## Training and Evaluation
 Training: Fine-tuning on the Whisper-tiny model.
 Location: https://huggingface.co/openai/whisper-tiny
-(You are open to choose any )
+(You are open to choose any model)
 The model need not be downloaded, it will be directly processed and used by the scripts.
 
-### Part A: Without Spoken Punctuations
-In this case, the spoken audio is delivered in a standard manner without any spoken punctuation. The corresponding text transcripts contain written punctuation marks in symbols such as ,/./?/! (i.e., periods, commas, and question marks).
+The corresponding text transcripts contain written punctuation marks in symbols such as ,/./?/! (i.e., periods, commas, and question marks).
 
 **Processing the Dataset:**
-
 This script processes the database and prepares it for use by the training script. 
 Since the data will be used to fine-tune the Whisper Model, the audio files and text need to meet the model's requirements.
 
@@ -89,31 +88,6 @@ This script uses either the `processed dataset` or `processed_dataset_clean` dat
 - **Output:**
     - **Model Checkpoints:** The trained models are saved in the `model` directory
     
-### Part B: With Spoken Punctuations
-In this case, the audio files contain spoken punctuation. E.g., "Hallo komma hoe gaat het vraagteken Ik ben goed punt"
-
-
-**Processing the Dataset:**
-
-This script processes the database and prepares it for use by the training script. 
-Since the data will be used to fine-tune the Whisper Model, the audio files and text need to meet the model's requirements. The text transcripts, if containing punctuation symbols (,/./?/!) should be mapped to tokens (`<punt>, <komma>, <vraagteken>, <uiteoepteken>`).
-
-```bash
-    python3 scripts/preprocess_punc.py 
-```
-
-- **Output:**
-    - **`Processed Audio`:** The wavefile parameters are altered to match the requiremnets of the Whisper-model
-    - **`Processed Text`:** The punctuation symbols are converted into tokens in the text.
-    - The processed dataset will be saved as `processed_dataset_spkpunc` in the `data` directory.
-
-**Training the Model:**
-
-This script uses the `processed_dataset_spkpunc` database to fine-tune a model based on Whisper-tiny.
-
-```sh
-    python3 scripts/train_spkpunc.py 
-```
 **Note:** This scripts can use GPU/CPU for training. Set the parameters, modelname and other parameters in the script accordingly.
 
 - **Output:**
