@@ -85,7 +85,7 @@ def main_train():
 
     # Define training arguments
     training_args = Seq2SeqTrainingArguments(
-        output_dir="./models/trainclean_nospkpunc", #Choose any model name
+        output_dir="./models/trainclean", #Choose any model name
         eval_strategy="steps",
         save_strategy="steps",
         per_device_train_batch_size=2,
